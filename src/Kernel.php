@@ -108,8 +108,10 @@ class Kernel extends BaseKernel
 
     public function boot(): void
     {
-        date_default_timezone_set($this->container->getParameter('timezone'));
         parent::boot();
+        if ($this->container && $this->container->hasParameter('timezone')) {
+            date_default_timezone_set($this->container->getParameter('timezone'));
+        }
     }
 
     // optional, to use the standard Symfony cache directory

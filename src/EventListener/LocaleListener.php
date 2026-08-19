@@ -59,7 +59,7 @@ readonly class LocaleListener implements EventSubscriberInterface
         $this->setRequestLocale($request, $locale);
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::REQUEST => [['onKernelRequest', 20]], // higher prio than kernel localelistener
